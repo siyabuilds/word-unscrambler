@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Unscrambler from "./Unscrambler";
+import Unscrambler from "@/components/Unscrambler";
 
 export default function Home() {
   return (
