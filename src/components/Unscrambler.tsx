@@ -20,7 +20,8 @@ const Unscrambler = () => {
       } else {
         setError(data.error || "Failed to unscramble");
       }
-    } catch (err) {
+    } catch (err: unknown) {
+      console.error(err);
       setError("An error occurred while fetching results.");
     } finally {
       setLoading(false);
