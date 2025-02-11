@@ -2,21 +2,20 @@ import * as fs from "fs";
 import * as path from "path";
 import { NextApiRequest, NextApiResponse } from "next";
 
-const loadDictionary = async (): Promise<Record<number, string[]>> => {
+const loadDictionary = async () => {
   const filePath = path.join(process.cwd(), "src/pages/api/words.json");
 
   try {
     const data = await fs.promises.readFile(filePath, "utf-8");
     const dictionary = JSON.parse(data);
     return dictionary;
-  } catch (error) {
+  } catch (error: unknown) {
     console.error("Error loading dictionary:", error);
-    throw new Error("Failed to load dictionary: " + error.message);
   }
 };
 
 // Function to unscramble the word (async version)
-const unscramble = async (scrambledWord: string): Promise<string[]> => {
+const unscramble = async (scrambledWord: string) => {
   try {
     const dictionary = await loadDictionary();
     const wordLength = scrambledWord.length;
@@ -25,7 +24,7 @@ const unscramble = async (scrambledWord: string): Promise<string[]> => {
 
     const sortedScrambled = scrambledWord.split("").sort().join("");
     // Find matching words
-    const matchingWords = dictionary[wordLength].filter((word) => {
+    const matchingWords = dictionary[wordLength].filter((word: string) => {
       const sortedWord = word.split("").sort().join("");
       return sortedScrambled === sortedWord;
     });
@@ -33,7 +32,6 @@ const unscramble = async (scrambledWord: string): Promise<string[]> => {
     return matchingWords;
   } catch (error) {
     console.error("Error unscrambling word:", error);
-    throw new Error("Failed to unscramble word: " + error.message);
   }
 };
 
@@ -55,9 +53,7 @@ export default async function handler(
       return res.status(200).json({ word, possibleWords });
     } catch (error) {
       console.error("API Handler Error:", error);
-      return res
-        .status(500)
-        .json({ error: "Failed to unscramble word", details: error.message });
+      return res.status(500).json({ error: "Failed to unscramble word" });
     }
   }
 
