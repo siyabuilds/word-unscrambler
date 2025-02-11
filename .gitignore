@@ -44,6 +44,3 @@ next-env.d.ts
 *.js
 *.js.map
 *.d.ts
-
-# Wordlist generation
-words.json
