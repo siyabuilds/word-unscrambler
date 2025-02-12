@@ -49,7 +49,7 @@ export default async function handler(
     }
 
     try {
-      const possibleWords = await unscramble(word);
+      const possibleWords = await unscramble(word.toLowerCase());
       return res.status(200).json({ word, possibleWords });
     } catch (error) {
       console.error("API Handler Error:", error);
