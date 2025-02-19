@@ -49,8 +49,10 @@ const Unscrambler = () => {
       <ul className="mt-4 flex">
         {results.length > 0 ? (
           results.map((word, idx) => (
-            <li key={idx} className="p-1 text-black">
-              {word}
+            <li key={idx} className="p-1">
+              <span className="bg-black text-white  px-4 py-2 rounded cursor-pointer hover:bg-white hover:text-black hover:border hover:border-black transition duration-200 ease-in-out">
+                {word}
+              </span>
             </li>
           ))
         ) : (
