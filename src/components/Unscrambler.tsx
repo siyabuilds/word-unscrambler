@@ -40,7 +40,7 @@ const Unscrambler = () => {
       />
       <button
         onClick={handleUnscramble}
-        className="w-full bg-blue-500 text-white p-2 rounded"
+        className="w-full bg-black text-white px-4 py-2 rounded cursor-pointer hover:bg-white hover:text-black hover:border hover:border-black transition duration-200 ease-in-out"
         disabled={loading}
       >
         {loading ? "Unscrambling..." : "Unscramble"}
