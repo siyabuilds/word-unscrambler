@@ -29,18 +29,18 @@ const Unscrambler = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-4 bg-white shadow-lg rounded-lg">
-      <h2 className="text-xl font-bold mb-2 text-black">Word Unscrambler</h2>
+    <div className="max-w-md mx-auto p-4 bg-lightGray shadow-lg rounded-lg">
+      <h2 className="text-xl font-bold mb-2 text-darkGray">Word Unscrambler</h2>
       <input
         type="text"
         placeholder="Enter scrambled word"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className="w-full p-2 border rounded mb-2 text-blue-950"
+        className="w-full p-2 border rounded mb-2 border-darkGray text-darkGray focus:outline-none focus:ring-2 focus:ring-lightBlue focus:border-transparent transition-all duration-300 ease-in-out"
       />
       <button
         onClick={handleUnscramble}
-        className="w-full bg-black text-white px-4 py-2 rounded cursor-pointer hover:bg-white hover:text-black hover:border hover:border-black transition duration-200 ease-in-out"
+        className="w-full bg-black text-white px-4 py-2 rounded cursor-pointer hover:bg-lightBlue transition duration-300 ease-in-out"
         disabled={loading}
       >
         {loading ? "Unscrambling..." : "Unscramble"}
@@ -50,7 +50,7 @@ const Unscrambler = () => {
         {results.length > 0 ? (
           results.map((word, idx) => (
             <li key={idx} className="p-1">
-              <span className="bg-black text-white  px-4 py-2 rounded cursor-pointer hover:bg-white hover:text-black hover:border hover:border-black transition duration-200 ease-in-out">
+              <span className="bg-black text-white px-4 py-2 rounded cursor-pointer hover:bg-lightBlue hover:border transition duration-300 ease-in-out">
                 {word}
               </span>
             </li>
