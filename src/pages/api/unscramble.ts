@@ -60,7 +60,7 @@ export default async function handler(
 
     try {
       const possibleWords = await unscramble(word.toLowerCase());
-      return res.status(200).json(possibleWords);
+      return res.status(200).json({ possibleWords });
     } catch (error) {
       console.error("API Handler Error:", error);
       return res.status(500).json({ error: "Failed to unscramble word" });
