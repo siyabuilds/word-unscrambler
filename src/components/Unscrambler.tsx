@@ -98,7 +98,7 @@ const Unscrambler = () => {
               <input
                 ref={inputRef}
                 type="text"
-                placeholder="Enter scrambled letters... (e.g., 'act', 'listen')"
+                placeholder="Enter scrambled letters... (e.g., &lsquo;act&rsquo;, &lsquo;listen&rsquo;)"
                 value={input}
                 onChange={handleInputChange}
                 onKeyPress={handleKeyPress}
@@ -302,7 +302,7 @@ const Unscrambler = () => {
         <div className="grid md:grid-cols-2 gap-4 text-sm text-slate-400">
           <div className="flex items-start gap-2">
             <span className="text-emerald-400">•</span>
-            <span>Try common letter combinations like 'ing', 'ed', 'er'</span>
+            <span>Try common letter combinations like &lsquo;ing&rsquo;, &lsquo;ed&rsquo;, &lsquo;er&rsquo;</span>
           </div>
           <div className="flex items-start gap-2">
             <span className="text-emerald-400">•</span>
